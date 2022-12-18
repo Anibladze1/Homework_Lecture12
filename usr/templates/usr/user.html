@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Date</title>
 </head>
 <body>
+    <div class="container">
+        <form method="POST">
+          <fieldset>
+            <legend>User Info</legend>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </fieldset>
+        </form>
+    </div>
 
+    <div>
+        <h1> Years Difference:</h1>
+    </div>
 </body>
 </html>

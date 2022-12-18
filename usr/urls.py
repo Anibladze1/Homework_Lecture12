@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.calculation, name='user-birthdate')
+    path('', views.user_inputs, name='user-birthdate'),
+    path('result/', views.calculate_age, name='result-page')
 ]

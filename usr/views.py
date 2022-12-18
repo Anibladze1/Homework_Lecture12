@@ -1,12 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 import datetime
 from .models import User
 from django.http import HttpResponse
+from .forms import UserForm
 
 
-def calculation(request):
-    user = User
-    date_today = datetime.date.today()
+def user_inputs(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('result-page')
 
-    return HttpResponse(user.birth_date)
-    # return render(request, 'usr/user.html')
+    else:
+        form = UserForm()
+
+    return render(request, 'usr/user.html', {'form': form})
+
+
+def calculate_age(request):
+    return HttpResponse(User().calculate_age)
