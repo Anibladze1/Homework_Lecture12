@@ -1,7 +1,5 @@
-# from django.conf import settings
-import datetime
-
 from django.db import models
+import datetime
 
 
 # from django.utils import timezone
@@ -9,13 +7,12 @@ from django.db import models
 
 class User(models.Model):
     name = models.CharField(max_length=50)
-    birth_date = models.DateField(null=True)
+    birth_date = models.IntegerField(null=True)
 
-    @property
-    def calculate_age(self):
-        if self.birth_date:
-            today = datetime.date.today()
-            return today.year - self.birth_date.year - (
-                        (today.month, today.day) < (self.birth_date.month, self.birth_date.day))
-        return 0
+    # def calculate_age(self):
+    #     return int((datetime.datetime.now().year - int(self.birth_date) +1))
+    #
+    # age = property(calculate_age)
 
+    def __str__(self):
+        return self.name

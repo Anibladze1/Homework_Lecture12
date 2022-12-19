@@ -18,5 +18,6 @@ def user_inputs(request):
     return render(request, 'usr/user.html', {'form': form})
 
 
-def calculate_age(request):
-    return HttpResponse(User().calculate_age)
+def calculator(request):
+    # age = User().age
+    return HttpResponse(User())

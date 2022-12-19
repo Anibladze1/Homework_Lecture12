@@ -7,4 +7,3 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ["name", "birth_date"]
         labels = {"name": "Name", "birth_date": "Birthdate (Y-MM-DD)"}
-
